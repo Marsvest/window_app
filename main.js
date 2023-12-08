@@ -3,10 +3,11 @@ var block = new Vue({
     data: {
         x: 0,
         y: 0,
-        color: 'rgb(0,100,255)'
+        color: 'rgb(0,0,0)'
     },
     created() {
-        this.intervalId = setInterval(this.spawn(), 2000);
+        this.spawn()
+        this.intervalId = setInterval(this.move, 50);
     },
     methods: {
         generateRandomColor() {
@@ -23,8 +24,11 @@ var block = new Vue({
         },
         spawn() {
             this.x = this.generateRandomPos();
-            this.y = this.generateRandomPos();
+            this.y = 100
             this.color = this.generateRandomColor();
+        },
+        move() {
+            this.y -= 0.5;
         }
     }
 });
