@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  #block {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+}
