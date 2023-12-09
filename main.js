@@ -3,7 +3,7 @@ var block = new Vue({
     data: {
         x: 0,
         y: 0,
-        color: 'rgb(0,0,0)'
+        color: 'rgb(255,255,255)'
     },
     created() {
         this.spawn()
@@ -28,7 +28,7 @@ var block = new Vue({
             this.color = this.generateRandomColor();
         },
         move() {
-            this.y -= 0.5;
+            if (this.y > 0) this.y -= 0.5;
         }
     }
 });
