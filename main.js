@@ -1,4 +1,4 @@
-Vue.component('comp', {
+Vue.component('block', {
     template: `
     <div id="block" :style="{ left: x + '%', bottom: y + '%', backgroundColor: color }">
     </div>
@@ -7,13 +7,12 @@ Vue.component('comp', {
         return {
             x: 0,
             y: 0,
-            color: 'rgb(255,255,255)',
-            intervalId: null,
+            color: 'rgb(255,255,255)'
         };
     },
     created() {
         this.spawn();
-        this.intervalId = setInterval(this.move, 50);
+        setInterval(this.move, 50);
     },
     methods: {
         generateRandomColor() {
@@ -35,11 +34,8 @@ Vue.component('comp', {
         },
         move() {
             if (this.y > 0) this.y -= 0.5;
-        },
-    },
-    beforeDestroy() {
-        clearInterval(this.intervalId);
-    },
+        }
+    }
 });
 
 var app = new Vue({
