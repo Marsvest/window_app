@@ -39,5 +39,16 @@ Vue.component('block', {
 });
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        items: []
+    },
+    created() {
+        setInterval(this.add_block, 2000);
+    },
+    methods: {
+        add_block() {
+            this.items.push(0)
+        }
+    }
 })
