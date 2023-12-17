@@ -9,8 +9,8 @@ body {
   }
 
   #block {
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
     background-color: #ccc;
 
     position: absolute;

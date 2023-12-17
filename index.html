@@ -10,7 +10,7 @@
 
 <body>
     <div id="app">
-        <block v-for="item in items" :pos_x="item.pos_x" :pos_y="item.pos_y" :color1="item.color1"></block>
+        <block ref="myBlock" v-for="(item, index) in items" :key="index" :pos_x="item.pos_x" :pos_y="item.pos_y" :color1="item.color1" :index1="item.index1"></block>
     </div>
 
     <script src="main.js"></script>
