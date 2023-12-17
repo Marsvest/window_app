@@ -20,11 +20,30 @@ Vue.component('block', {
     },
     methods: {
         move() {
-            if (this.index === 0 && this.y > 0) {
-                this.y -= 0.5;
-            } else if (this.index > 0 && this.y > this.$parent.positions_y[this.index - 1] + 10) {
-                this.y -= 0.5;
+            const blockHeight = 10.1;
+            const blockWidth = 10;
+
+            if (this.y > 0) {
+                const collidesWithOtherBlock = this.$parent.items.some((item) => {
+                    if (item.index1 !== this.index) {
+                        const otherBlockY = this.$parent.positions_y[item.index1];
+                        const otherBlockX = this.$parent.positions_x[item.index1];
+                        return (
+                            this.y - blockHeight < otherBlockY &&
+                            this.y > otherBlockY - blockHeight &&
+                            this.x < otherBlockX + blockWidth &&
+                            this.x + blockWidth > otherBlockX
+                        );
+                    }
+                    return false;
+                });
+
+                if (!collidesWithOtherBlock) {
+                    this.y -= 0.5;
+                }
             }
+
+            this.$parent.positions_y[this.index] = this.y;
         }
     }
 });
